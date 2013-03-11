@@ -6,7 +6,7 @@ A fluentd buffered output filter that posts to https a json array of records
 Installation
 =================
 
-gem install 'fluentd_https_out'
+gem install 'fluent-plugin-https-json'
 
 Usage
 =================

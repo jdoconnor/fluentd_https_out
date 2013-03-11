@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |gem|
-  gem.name          = "fluentd_https_out"
+  gem.name          = "fluent-plugin-https-json"
   gem.version       = "0.0.1"
   gem.authors       = ["Jay OConnor"]
   gem.email         = ["jaydoconnor@gmail.com"]
