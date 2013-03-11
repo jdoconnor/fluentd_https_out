@@ -19,6 +19,7 @@ class Fluent::HttpsJsonOutput < Fluent::TimeSlicedOutput
     @http = Net::HTTP.new(@uri.host,@uri.port)
     @https = Net::HTTP.new(@uri.host,@uri.port)
     @https.use_ssl = true
+    @use_https = conf['use_https'] == 'true'
   end
 
   # This method is called when starting.
@@ -51,8 +52,11 @@ class Fluent::HttpsJsonOutput < Fluent::TimeSlicedOutput
     events = events.to_json
     req = Net::HTTP::Post.new(@uri.path)
     req.set_form_data({"events" => events})
-    res = @http.request(req)
-    #res = @https.request(req)
+    if @use_https
+      res = @https.request(req)
+    else
+      res = @http.request(req)
+    end
   end
 
 end
